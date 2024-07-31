@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .input-field {
+            margin: 10px 0;
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <h2>Simple Calculator</h2>
+    <input type="number" id="num1" class="input-field" placeholder="Enter first number">
+    <input type="number" id="num2" class="input-field" placeholder="Enter second number">
+    <input type="text" id="operator" class="input-field" placeholder="Enter operator (+, -, *, /, %)">
+    <button class="submit-button" onclick="calculate()">Submit</button>
+    <p id="result" class="result"></p>
+</div>
+
+<script>
+    function calculate() {
+        var num1 = parseFloat(document.getElementById('num1').value);
+        var num2 = parseFloat(document.getElementById('num2').value);
+        var operator = document.getElementById('operator').value;
+        var result;
+
+        switch(operator) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                result = num1 / num2;
+                break;
+            case '%':
+                result = num1 % num2;
+                break;
+            default:
+                result = 'Invalid operator';
+        }
+
+        document.getElementById('result').textContent = 'Result: ' + result;
+    }
+</script>
+</body>
+</html>
